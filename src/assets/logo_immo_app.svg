@@ -1,0 +1,154 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="100%" height="100%">
+  <defs>
+    <!-- Arrière-plan dégradé lumineux -->
+    <radialGradient id="bgGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#1A2035" />
+      <stop offset="100%" stop-color="#0A0C16" />
+    </radialGradient>
+
+    <!-- Dégradé du smiley / Halo de bonheur -->
+    <linearGradient id="happySun" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFD700" />
+      <stop offset="100%" stop-color="#FF8C00" />
+    </linearGradient>
+
+    <!-- Dégradé IT / Tech -->
+    <linearGradient id="techCyan" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00F2FE" />
+      <stop offset="100%" stop-color="#4FACFE" />
+    </linearGradient>
+
+    <!-- Dégradé Maison / Immobilier -->
+    <linearGradient id="houseGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#00C6FF" />
+      <stop offset="100%" stop-color="#0072FF" />
+    </linearGradient>
+
+    <!-- Dégradé toit dynamique -->
+    <linearGradient id="roofGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF007A" />
+      <stop offset="100%" stop-color="#9600FF" />
+    </linearGradient>
+
+    <!-- Ombre douce -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="12" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+    
+    <!-- Glow intense pour la tech -->
+    <filter id="brightGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComponentTransfer in="blur" result="boost">
+        <feFuncA type="linear" slope="2"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode in="boost" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Fond -->
+  <rect width="800" height="800" fill="url(#bgGrad)" />
+
+  <!-- AURA DE BONHEUR (Sourire géant en arrière-plan) -->
+  <g filter="url(#glow)" opacity="0.15">
+    <circle cx="400" cy="400" r="320" fill="url(#happySun)" />
+  </g>
+  
+  <!-- Arc du sourire global (Bien-être pour tous) -->
+  <path d="M 160 480 A 260 260 0 0 0 640 480" fill="none" stroke="url(#happySun)" stroke-width="24" stroke-linecap="round" filter="url(#glow)" />
+
+  <!-- RÉTICULE ET CONNEXIONS IT (Réseau sous-jacent) -->
+  <g stroke="url(#techCyan)" stroke-width="2" opacity="0.4" fill="none">
+    <!-- Cercles concentriques de gestion -->
+    <circle cx="400" cy="380" r="260" stroke-dasharray="8 8" />
+    <circle cx="400" cy="380" r="190" stroke-dasharray="4 4" />
+    
+    <!-- Lignes de données -->
+    <path d="M 140 380 L 260 380 M 540 380 L 660 380" />
+    <path d="M 400 120 L 400 210 M 400 550 L 400 640" />
+    <path d="M 216 196 L 286 266 M 514 494 L 584 564" />
+    <path d="M 584 196 L 514 266 M 286 494 L 216 564" />
+  </g>
+
+  <!-- FLUX DE BITS ET DONNÉES EN FLOTTEMENT (0 et 1 joyeux) -->
+  <g font-family="monospace" font-weight="bold" filter="url(#brightGlow)">
+    <!-- Bits Cyan -->
+    <g fill="#00F2FE" font-size="28" opacity="0.9">
+      <text x="210" y="240">1</text>
+      <text x="170" y="340">0</text>
+      <text x="220" y="450">1</text>
+      <text x="280" y="540">0</text>
+      <text x="560" y="240">0</text>
+      <text x="610" y="340">1</text>
+      <text x="560" y="450">0</text>
+      <text x="490" y="540">1</text>
+    </g>
+    
+    <!-- Bits Roses/Violets (Magie & Facilité) -->
+    <g fill="#FF007A" font-size="22" opacity="0.8">
+      <text x="310" y="180">0</text>
+      <text x="460" y="180">1</text>
+      <text x="140" y="400">1</text>
+      <text x="640" y="400">0</text>
+      <text x="330" y="590">1</text>
+      <text x="450" y="590">0</text>
+    </g>
+  </g>
+
+  <!-- NOEUDS DE CONNEXION (Petits cerveaux / Switchs IT) -->
+  <g fill="#00F2FE" filter="url(#brightGlow)">
+    <circle cx="260" cy="380" r="6" />
+    <circle cx="540" cy="380" r="6" />
+    <circle cx="400" cy="210" r="6" />
+    <circle cx="286" cy="266" r="6" />
+    <circle cx="514" cy="266" r="6" />
+  </g>
+
+  <!-- LA MAISON (Symbole de l'immobilier géré sereinement) -->
+  <g id="House" filter="url(#glow)">
+    <!-- Base / Corps de la maison -->
+    <rect x="290" y="340" width="220" height="170" rx="16" fill="url(#houseGrad)" />
+
+    <!-- Toit moderne stylisé -->
+    <path d="M 260 350 L 400 230 L 540 350 Z" fill="url(#roofGrad)" />
+
+    <!-- Porte d'entrée accueillante -->
+    <rect x="365" y="420" width="70" height="90" rx="35" fill="#1A2035" />
+    <circle cx="420" cy="465" r="4" fill="#FFD700" filter="url(#brightGlow)" />
+
+    <!-- Fenêtres - YEUX DU SMILEY (L'immobilier heureux) -->
+    <!-- Fenêtre Gauche (œil pétillant) -->
+    <rect x="320" y="360" width="50" height="50" rx="12" fill="#FFFFFF" />
+    <circle cx="345" cy="385" r="16" fill="#0A0C16" />
+    <circle cx="350" cy="380" r="6" fill="#00F2FE" />
+
+    <!-- Fenêtre Droite (œil pétillant) -->
+    <rect x="430" y="360" width="50" height="50" rx="12" fill="#FFFFFF" />
+    <circle cx="455" cy="385" r="16" fill="#0A0C16" />
+    <circle cx="460" cy="380" r="6" fill="#00F2FE" />
+  </g>
+
+  <!-- LE SOURIRE DE LA MAISON (Gestion facile et sans effort) -->
+  <path d="M 370 480 Q 400 505 430 480" fill="none" stroke="#FFD700" stroke-width="6" stroke-linecap="round" filter="url(#brightGlow)" />
+
+  <!-- CŒURS ET ÉTINCELLES DE BONHEUR (Sérénité des propriétaires & locataires) -->
+  <g fill="#FF007A" filter="url(#brightGlow)">
+    <!-- Cœur flottant 1 -->
+    <path d="M 250 290 C 250 280 235 270 225 282 C 215 270 200 280 200 290 C 200 305 225 320 225 320 C 225 320 250 305 250 290 Z" transform="scale(0.8) translate(50, -20)" />
+    <!-- Cœur flottant 2 -->
+    <path d="M 580 290 C 580 280 565 270 555 282 C 545 270 530 280 530 290 C 530 305 555 320 555 320 C 555 320 580 305 580 290 Z" transform="scale(0.8) translate(140, -20)" />
+  </g>
+
+  <!-- Étincelles de facilité / Magie de l'automatisation -->
+  <g fill="#FFD700" filter="url(#brightGlow)">
+    <!-- Étoile 1 -->
+    <path d="M 400 150 L 404 162 L 416 166 L 404 170 L 400 182 L 396 170 L 384 166 L 396 162 Z" />
+    <!-- Étoile 2 -->
+    <path d="M 270 480 L 272 488 L 280 490 L 272 492 L 270 500 L 268 492 L 260 490 L 268 488 Z" />
+    <!-- Étoile 3 -->
+    <path d="M 530 480 L 532 488 L 540 490 L 532 492 L 530 500 L 528 492 L 520 490 L 528 488 Z" />
+  </g>
+</svg>

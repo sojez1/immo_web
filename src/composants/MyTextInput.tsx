@@ -1,0 +1,51 @@
+import { useId, useState } from "react"
+import { BsEye, BsEyeSlash } from "react-icons/bs";
+
+type textInputProp = {
+    label: string,
+    name: string,
+    type?: "text" | "tel" | "password" | "email",
+    required?:boolean,
+    className?:string,
+    value:string | number,
+    onValueChange: React.ChangeEventHandler<HTMLInputElement>,
+    placeholder?:string
+}
+
+export default function MyTextInput({label, name, value, onValueChange, type="text", required=false, className="form-control", placeholder}:textInputProp) {
+    const label_id = useId();
+    const [showPassword, setShowPassword] = useState(false);
+  return (
+    <div className="form">
+        <label className="form-label" htmlFor={label_id}>{label}</label>
+
+        <div className="input-group">
+            <input 
+                id={label_id}
+                className={className}
+                type={(type=="password" && showPassword)?"text":type}
+                required={required}
+                value={value}
+                onChange={onValueChange}
+                name={name}
+                placeholder={placeholder}
+            />
+
+            {/** Afficher oeil pour visulaiser la saisie si champ password */}
+            {
+                type == "password" && <button 
+                    type="button"
+                    className="btn btn-secondary"
+                    onClick={()=>setShowPassword(!showPassword)}
+                >
+                {showPassword?<BsEye/>:<BsEyeSlash/>}
+                </button>
+            }
+            
+
+        </div>
+        
+        
+    </div>
+  )
+}
