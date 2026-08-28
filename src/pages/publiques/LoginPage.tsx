@@ -1,6 +1,9 @@
 import { useState } from "react";
 import MyTextInput from "../../composants/MyTextInput";
 import { motion } from "motion/react";
+import { NavLink, useNavigate } from "react-router-dom";
+import { IoKey } from "react-icons/io5";
+import {FaUser} from "react-icons/fa"
 
 type loginProps = {
   username: string;
@@ -14,6 +17,8 @@ const defaultLoginData:loginProps = {
 
 export default function LoginPage() {
 
+  const navigateTo = useNavigate();
+
   const [loginData, setLoginData] = useState<loginProps>(defaultLoginData)
 
   const handleLoginDataChange = (e:React.ChangeEvent<HTMLInputElement>)=>{
@@ -25,6 +30,10 @@ export default function LoginPage() {
      
   };
 
+  const handleBtnInscription = ()=>{
+    return navigateTo("/inscription")
+  };
+
   const handleBtnSubmit = (e:React.SubmitEvent<HTMLFormElement>)=>{
     e.preventDefault();
     alert(loginData.username+" "+loginData.password);
@@ -32,20 +41,30 @@ export default function LoginPage() {
   
   
   return (
-    <div className="container">
-        <div>
+    <div className="container vh-100">
+        <div className="d-flex" style={{maxHeight: "30vh"}}>
           <img
             src='src\assets\logo_immo_app.svg'
             alt="..."
             className="img-fluid"
           />
         </div>
-        <h1>Authentification de l'utilisateur</h1>
-        <form onSubmit={handleBtnSubmit}>
-            <MyTextInput required label="username or email" name="username" value={loginData.username} onValueChange={handleLoginDataChange} />
-            <MyTextInput required label="password" name="password" type="password" value={loginData.password} onValueChange={handleLoginDataChange} />
+
+        <div className="d-flex flex-column gap-5" style={{maxHeight: "50vh"}}>
+          <form onSubmit={handleBtnSubmit}>
+          <h1>Authentification de l'utilisateur</h1>
+            <MyTextInput required label="username or email" name="username" value={loginData.username} onValueChange={handleLoginDataChange} icone={FaUser} />
+            <MyTextInput required label="password" name="password" type="password" value={loginData.password} onValueChange={handleLoginDataChange} icone={IoKey} />
             <motion.button whileTap={{scale:1.15}}>Valider</motion.button>
         </form>
+        <div className="d-flex flex-row">
+          <button onClick={handleBtnInscription} className="btn btn-primary gap-5">s'inscrire</button>
+          <NavLink to="" className="btn btn-sm btn-primary">reset password</NavLink>
+        </div>
+
+        </div>
+        
+        
     </div>
   )
 }

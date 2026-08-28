@@ -10,6 +10,8 @@ import PayerLoyer from "../pages/locataires/PayerLoyer";
 import MenuNavigation from "./MenuNavigation";
 import HomePage from "../pages/publiques/HomePage";
 import AppErrorPage from "../pages/AppErrorPage";
+import Inscriptions from "../pages/publiques/Inscriptions";
+import ListeUsers from "../pages/publiques/ListeUsers";
 
 
 
@@ -26,6 +28,8 @@ export const mesRoutes = createBrowserRouter([
             {path: "signaler", element: <SignalerUnDysfonctionnement />},
             {path: "ajouter", element: <AjouterUnePropriete />},
             {path: "publier", element: <PublierUneOffre />},
+            {path: "inscription", element: <Inscriptions/>},
+            {path:"listeUtilisateurs", element:<ListeUsers/>},
             {path: "*", element:<AppErrorPage/>} 
 
         ]

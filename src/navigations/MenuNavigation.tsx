@@ -10,7 +10,7 @@ type RoleUtilisateur = {
 
 export default function MenuNavigation({roleUtilisateur = "visiteur"}:RoleUtilisateur) {
     
-    const refBarreDeNavigation = useRef(null);
+    const refBarreDeNavigation = useRef<HTMLDivElement | null>(null);
     const menu = menus[roleUtilisateur];
     
     // Fonction pour fermer le menu après un clic sur un lien de navigation
@@ -37,10 +37,10 @@ export default function MenuNavigation({roleUtilisateur = "visiteur"}:RoleUtilis
                 </button>
 
                 <div className='collapse navbar-collapse' id='navbarSupportedContent' ref={refBarreDeNavigation}>
-                    <ul className='navbar-nav ms-auto mb-2 mb-lg-0' onClick={fermerMenu}>
+                    <ul className='navbar-nav ms-auto mb-2 mb-lg-0'>
                         {menu.map((item, index) => (
                             <li key={index} className="nav-item">
-                                <NavLink className="nav-link" to={item.path}>{item.label}</NavLink>
+                                <NavLink className="nav-link" to={item.path} onClick={fermerMenu}>{item.label}</NavLink>
                             </li>
                         ))}
                     </ul>
