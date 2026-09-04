@@ -4,6 +4,7 @@ import MyButtons from "../../composants/MyButtons";
 import { myAxios } from "../../axios/axios";
 
 import type { newUserRegistrationData } from "../../MyDataTypes";
+import { useNavigate } from "react-router-dom";
 
 const defaultUserData = {
     nom: "",
@@ -21,6 +22,8 @@ export default function Inscriptions() {
     const [imgUrl, setImgUrl]= useState<string | null>(null);
     const [errorMessage, setErrorMessage] = useState("");
 
+    const navigateTo = useNavigate()
+;
     const handleUserDataChange = (e:React.ChangeEvent<HTMLInputElement>)=>{
         const {name, value} = e.target;
 
@@ -90,6 +93,8 @@ export default function Inscriptions() {
         setErrorMessage("enregistrement reussi");
         setImgUrl(null);
         setUserRegistrationData(defaultUserData);
+        navigateTo("login");
+
     }
 
 
