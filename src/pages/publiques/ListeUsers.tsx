@@ -1,15 +1,7 @@
 import { useEffect, useState } from "react";
 import { myAxios } from "../../axios/axios"
 
-type userDataType = {
-    id: number;
-    nom: string;
-    prenoms:string;
-    username:string;
-    email:string;
-    actif: boolean;
-    emailValide: boolean
-}
+import type { userDataType } from "../../MyDataTypes";
 
 const listeUsers_url = "/utilisateurs/profil/all-users"
 

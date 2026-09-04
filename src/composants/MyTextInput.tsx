@@ -19,7 +19,7 @@ export default function MyTextInput({label, name, value, onValueChange, type="te
     const [showPassword, setShowPassword] = useState(false);
   return (
     <div className="form">
-        <label className="form-label w-100 text-start" htmlFor={label_id}>{label}</label>
+        <label className="form-label w-100 text-start" htmlFor={label_id}>{label} {required && <span className="text text-danger">*</span>}</label>
 
         <div className="input-group">
 
