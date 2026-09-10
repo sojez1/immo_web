@@ -62,20 +62,21 @@ export default function Inscriptions() {
     }
 
     const deletephoto = ()=>{
-        setImgUrl("");
+        if(imgUrl){
+            URL.revokeObjectURL(imgUrl);
+            setImgUrl(null);
+            setUserProfilPhoto(null);
+            setErrorMessage("")
+
+            const fileInput = document.getElementById("photo") as HTMLInputElement
+            if(fileInput){
+                fileInput.value="";
+            }
+        }
     }
 
     const prendePhotoWithCamera = async ()=>{
-        try{
-            const stream = navigator.mediaDevices.getUserMedia({
-                audio: false,
-                video: true,
-            });
-
-        }catch(e){
-            setErrorMessage("impossible d'acceder a la camera de l'appareil");
-            return;
-        }
+        
 
     }
 

@@ -4,7 +4,7 @@ const menuVisiteur = [
     { label: 'À propos', path: '/a-propos' },
     { label: 'Contact', path: '/contact' },
     { label: 'Se connecter', path: '/login' },
-    { label: 'S\'inscrire', path: '/register' },
+    { label: 'S\'inscrire', path: '/inscription' },
     {label: 'liste utilisateurs', path: 'listeUtilisateurs'}
 ];
 

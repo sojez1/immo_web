@@ -4,6 +4,8 @@ import { motion } from "motion/react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { IoKey } from "react-icons/io5";
 import {FaUser} from "react-icons/fa"
+import { myAxios } from "../../axios/axios";
+import axios from "axios";
 
 type loginProps = {
   username: string;
@@ -15,11 +17,14 @@ const defaultLoginData:loginProps = {
   password : ""
 }
 
+const loginUrl:string = "/utilisateurs/authentication/login";
+
 export default function LoginPage() {
 
   const navigateTo = useNavigate();
 
-  const [loginData, setLoginData] = useState<loginProps>(defaultLoginData)
+  const [loginData, setLoginData] = useState<loginProps>(defaultLoginData);
+  const [errorMessage, setErrorMessage] = useState<String>("");
 
   const handleLoginDataChange = (e:React.ChangeEvent<HTMLInputElement>)=>{
     const {name, value} = e.target;
@@ -34,9 +39,21 @@ export default function LoginPage() {
     return navigateTo("/inscription")
   };
 
-  const handleBtnSubmit = (e:React.SubmitEvent<HTMLFormElement>)=>{
+  const handleBtnSubmit = async (e:React.SubmitEvent<HTMLFormElement>)=>{
     e.preventDefault();
-    alert(loginData.username+" "+loginData.password);
+    try {
+      setErrorMessage("");
+      await myAxios.post(loginUrl, loginData);
+      setLoginData(defaultLoginData);      
+    } catch (error) {
+      if(axios.isAxiosError(error)){
+        setErrorMessage("Authentification echoue "+ error.message);
+      }else{
+        setErrorMessage("Echec de l'authentification");
+      }
+            
+    }
+    
   }
   
   
@@ -55,6 +72,7 @@ export default function LoginPage() {
           <h1>Authentification de l'utilisateur</h1>
             <MyTextInput required label="username or email" name="username" value={loginData.username} onValueChange={handleLoginDataChange} icone={FaUser} />
             <MyTextInput required label="password" name="password" type="password" value={loginData.password} onValueChange={handleLoginDataChange} icone={IoKey} />
+            {errorMessage && <p className="text text-danger">{errorMessage}</p>}
             <motion.button whileTap={{scale:1.15}}>Valider</motion.button>
         </form>
         <div className="d-flex flex-row">
