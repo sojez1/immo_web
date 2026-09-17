@@ -5,7 +5,8 @@ const menuVisiteur = [
     { label: 'Contact', path: '/contact' },
     { label: 'Se connecter', path: '/login' },
     { label: 'S\'inscrire', path: '/inscription' },
-    {label: 'liste utilisateurs', path: 'listeUtilisateurs'}
+    {label: 'liste utilisateurs', path: 'listeUtilisateurs'},
+    {label:'enregistrer appartement', path:'saveNewAppartement'}
 ];
 
 const communLocataireProprietaire = [

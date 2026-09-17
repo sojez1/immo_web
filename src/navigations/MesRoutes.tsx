@@ -12,6 +12,7 @@ import HomePage from "../pages/publiques/HomePage";
 import AppErrorPage from "../pages/AppErrorPage";
 import Inscriptions from "../pages/publiques/Inscriptions";
 import ListeUsers from "../pages/publiques/ListeUsers";
+import EnregistrerUnAppartement from "../pages/publiques/EnregistrerUnAppartement";
 
 
 
@@ -30,6 +31,7 @@ export const mesRoutes = createBrowserRouter([
             {path: "publier", element: <PublierUneOffre />},
             {path: "inscription", element: <Inscriptions/>},
             {path:"listeUtilisateurs", element:<ListeUsers/>},
+            {path:"saveNewAppartement", element:<EnregistrerUnAppartement/>},
             {path: "*", element:<AppErrorPage/>} 
 
         ]

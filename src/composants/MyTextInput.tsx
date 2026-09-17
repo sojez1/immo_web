@@ -5,16 +5,17 @@ import { BsEye, BsEyeSlash } from "react-icons/bs";
 type textInputProp = {
     label: string,
     name: string,
-    type?: "text" | "tel" | "password" | "email",
+    type?: "text" | "tel" | "password" | "email" | "number",
     required?:boolean,
     className?:string,
     value:string | number,
+    desactiver?: boolean,
     onValueChange: React.ChangeEventHandler<HTMLInputElement>,
     placeholder?:string,
     icone?: IconType
 }
 
-export default function MyTextInput({label, name, value, onValueChange, type="text", required=false, className="form-control", placeholder, icone:Icone}:textInputProp) {
+export default function MyTextInput({label, name, value, onValueChange, type="text", required=false, className="form-control", placeholder, desactiver=false, icone:Icone}:textInputProp) {
     const label_id = useId();
     const [showPassword, setShowPassword] = useState(false);
   return (
@@ -39,6 +40,7 @@ export default function MyTextInput({label, name, value, onValueChange, type="te
                 onChange={onValueChange}
                 name={name}
                 placeholder={placeholder}
+                disabled={desactiver}
             />
 
             {/** Affichage oeil pour visulaiser la saisie si champ password */}

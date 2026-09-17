@@ -17,3 +17,26 @@ export type userDataType = Omit<newUserRegistrationData, "password"> & { // util
     actif: boolean;
     emailValide: boolean
 }
+
+export type saveAppartementRequestType = {
+        
+        immeubleId?: number;
+        
+        immeubleAppelation?: string;
+
+        immeubleAdresse?: string;
+
+        appelationAppartement: string;
+
+        typeAppartement: string
+
+        nombreChambres: number;
+
+        nombreSallesDeBain: number
+
+        cuisine: boolean
+
+        superficie?: number
+
+        commentaires: string
+}
