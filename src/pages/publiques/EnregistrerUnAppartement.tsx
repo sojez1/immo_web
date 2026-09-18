@@ -27,7 +27,7 @@ const defaultAppartementData:saveAppartementRequestType = {
 }
 
 const url_immeubles_utilisateur = "/proprietaires/mes-immeubles";
-const url_saveAppartement = "/proprietaires/appartement/liste/active";
+const url_saveAppartement = "/proprietaires/immeuble/appartements/enregistrer";
 
 export default function EnregistrerUnAppartement() {
 
